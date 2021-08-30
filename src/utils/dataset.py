@@ -52,7 +52,7 @@ class ResizeNormalize(object):
 
     def __call__(self, img):
         img = np.array(img)
-
+        # print(len(img.shape))
         if len(img.shape) == 2:
             h, w = img.shape
             c = 1

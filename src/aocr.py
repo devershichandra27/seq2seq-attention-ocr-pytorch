@@ -2,13 +2,14 @@ import random
 
 import pytorch_lightning as pl
 import torch
-
+from torch import nn
 from src.modules.encoder import Encoder
 from src.modules.decoder import AttentionDecoder
 from src.utils import utils, dataset
 from src.utils.metrics import WER, CER
 
 class OCR(pl.LightningModule):
+# class OCR(nn.Module):
     def __init__(
             self,
             img_height: int = 32,
@@ -162,6 +163,7 @@ class OCR(pl.LightningModule):
         return utils.get_converted_word(decoder_outputs), attention_matrix
 
 class OCRDataModule(pl.LightningDataModule):
+# class OCRDataModule(nn.Module):
     def __init__(
             self,
             train_list: str = None,
